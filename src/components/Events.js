@@ -10653,7 +10653,7 @@ export default function Events() {
                   title={element.name}
                   type={element.type}
                   url={element.url}
-                  img = {element.images[1].url}
+                  img = {element.images[5].url}
                   venue = {element._embedded.venues[0].name}
                   date = {element.dates.start.dateTime}
                   timeZone = {element.dates.timezone}
