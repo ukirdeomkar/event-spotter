@@ -1,15 +1,21 @@
-import React from "react";
+import React ,{  useEffect } from "react";
+import { Link  , useLocation} from "react-router-dom";
 
 export default function NavBar() {
+  let location = useLocation();
+
+  useEffect(() => {
+    console.log(location)
+  }, [location]);
   return (
     <>
       <nav
         className='navbar navbar-expand-lg  bg-dark border-bottom border-bottom-dark'
         data-bs-theme='dark'>
         <div className='container-fluid'>
-          <a className='navbar-brand' href='/'>
-            Navbar
-          </a>
+          <Link className='navbar-brand' to='/'>
+          Event Spotter
+          </Link>
           <button
             className='navbar-toggler'
             type='button'
@@ -23,14 +29,14 @@ export default function NavBar() {
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
               <li className='nav-item'>
-                <a className='nav-link' aria-current='page' href='/'>
+                <Link className={`nav-link ${location.pathname==='/'?"active":""}`} aria-current='page' to='/'>
                   Home
-                </a>
+                </Link>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='/'>
-                  Link
-                </a>
+                <Link className={`nav-link ${location.pathname==='/about'?"active":""}`} to='/about'>
+                  About
+                </Link>
               </li>
             </ul>
             <form className='d-flex' role='search'>
